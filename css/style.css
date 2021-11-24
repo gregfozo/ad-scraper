@@ -7,6 +7,11 @@
   /*font-size: 120%;
   /*-webkit-box-reflect: below 1px linear-gradient(transparent, #0004);*/
 }
+
+p {
+  margin: 0;
+}
+
 body{
   display: flex;
   justify-content: center;
@@ -22,7 +27,7 @@ body{
   position: absolute;
   top: 5%;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
-  font-size: 3.5em;
+  font-size: 20px;
   left: 0%;
   right: 0%;
   text-align: center;
@@ -123,49 +128,6 @@ table td {
 }
 /*--------SEARCH END--------*/
 
-/*--------SPRITE START--------*/
-.linkSprite {
-  position: fixed;
-  top: 50%;
-  left: 7%;
-  transform: translate(-50%, -50%);
-  width: calc(968px / 5);
-  height: 205px;
-  background: url('../img/linkSprite1a.png');
-  animation: sprite 1s steps(5) infinite;
-}
-
-@keyframes sprite {
-  from {
-    background-position:0;
-  }
-  to {
-    background-position:968px;
-  }
-}
-
-.linkSprite2 {
-  position: fixed;
-  top: 50%;
-  left: 91%;
-  transform: translate(-50%, -50%);
-  width: calc(968px / 4);
-  height: 233px;
-  background: url('../img/linkSprite1b.png');
-  animation: sprite2 1s steps(4) infinite;
-}
-
-@keyframes sprite2 {
-  from {
-    background-position:0;
-  }
-  to {
-    background-position:968px;
-  }
-}
-
-/*--------SPRITE END--------*/
-
 /*--------FULL SCREEN MENU START--------*/
 
 .wrapper {
@@ -182,19 +144,6 @@ table td {
   justify-content: center;
   white-space: nowrap;
   z-index: 1;
-}
-
-.wrapper:after {
-  height: 100%;
-  width: 100%;
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  background: repeating-linear-gradient(
-  0deg, rgba(0,0,0,.5), rgba(0,0,0,.4) 1px, transparent 1px, transparent 2px);
-  z-index: 1000000;
-  pointer-events: none;
 }
 
 #active:checked ~ .wrapper {
@@ -225,23 +174,43 @@ table td {
   content: "\f00d";
 }
 
-.wrapper ul {
-  position: absolute;/*
-  top: 30%;
-  left: 25%;*/
+#screen {
+  aspect-ratio: 10 / 7.5;
+  width: 100%;
+  max-width: 620px;  
+  min-width: 200px;  
+  position: absolute;
   transition: translate(-50%, -50%);
-  list-style: none;
   text-align: center;
-  background: #9bbc0f;
-  border-style: solid;
-  border-color: #8a858b;
-  border-width: 4vh 8vh;
-  border-radius: 20px 20px 80px;
-  margin-top: 7.2vh;
+  background: #8a858b;
 }
 
+.menu {
+  background-color: #9bbc0f;
+  padding: 0;
+  overflow: auto;
+  width: 70%;
+  margin: auto;
+  position: relative;
+  aspect-ratio: 10 / 9;
+}
+
+.menu:after {
+  height: 100%;
+  width: 100%;
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: repeating-linear-gradient(
+  0deg, rgba(0,0,0,.5), rgba(0,0,0,.4) 1px, transparent 1px, transparent 2px);
+  z-index: 1000000;
+  pointer-events: none;
+}
+
+
 .wrapper ul li {
-  margin: 40px 20px;
+  list-style: none;
 }
 
 .wrapper ul li a {
@@ -249,9 +218,8 @@ table td {
   text-decoration: none;
   text-transform: uppercase;
   font-family: 'VT323', monospace;
-  font-size: 5em;
+  font-size: 44px;
   position: relative;
-  line-height: 4.6vh;
 }
 
 .wrapper ul li a:hover {
@@ -281,60 +249,29 @@ table td {
  }
 
  #dotmatrix {
-   position:relative;
-   font-size: 0.9em;
-   margin-top: -26vh;/*
-   width: 40vh;
-   margin-left: 53.1vh;*/
-   left: 3700%;
+   font-size: 11px;
    letter-spacing: 0.3vh;
    z-index: 1000001;
  }
 
- /*.line-1 {
-   position: absolute;
-   top: 23.5vh;
-   left: 49.5vh;
-   height: 0.4vh;
-   background-color: #721252;
-   width: 54.1vh;
-   z-index: 1000001;
- }
-
- .line-2 {
-   position: absolute;
-   top: 24.6vh;
-   left: 49.5vh;
-   height: 0.4vh;
-   background-color: #120950;
-   width: 54.1vh;
-   z-index: 1000001;
+.lines-left {
+  flex: 5
 }
- .line-3{
-  margin-top: -52.8vh;
-  margin-left: 90.5vh;
-  height: 0.4vh;
-  width: 6vh;
-  background-color: #721252;
-  z-index: 1000001;
- }
 
-.line-4{
-  margin-top: -50.4vh;
-  margin-left: -6vh;
-  height: 0.4vh;
-  width: 6vh;
-  background-color: #120950;
-  z-index: 1000001;
-}*/
+.lines-right {
+  flex: 2
+}
 
-.lines-left div {
-  position: relative;
-  width: 550px;
-  height: 0.4vh;
-  bottom: 26.2vh;
-  right: 31.5%;
-  z-index: 1000001;
+.line {
+  height: 4px;
+}
+
+.line.upper {
+  margin-bottom: 4px;
+}
+
+.line.lower {
+  margin-bottom: 5px;
 }
 
 .line-1 {
@@ -343,16 +280,6 @@ table td {
 
 .line-2 {
   background-color: #120950;
-  top: -25.4vh;
-}
-
-.lines-right div {
-  position: relative;
-  width: 55px;
-  height: 0.4vh;
-  bottom: 26.2vh;
-  left: 300%;
-  z-index: 1000001;
 }
 
 .line-3 {
@@ -361,60 +288,22 @@ table td {
 
 .line-4 {
   background-color: #120950;
-  top: -25.4vh
 }
 /*--------FULL SCREEN MENU END--------*/
 
-/*--------MEDIA QUERIES START--------*/
-
-@media screen and (max-width: 1919px){
-  .lines-left div {
-    bottom: 24.2vh;
-    height: 0.3vh;
-  }
-
-  .line-2 {
-    background-color: #120950;
-    top: -23.4vh;
-  }
-
-  .lines-right div {
-    bottom: 24.2vh;
-    height: 0.3vh;
-  }
-
-  .line-4 {
-    top: -23.4vh;
-  }
-
-  .wrapper:after {
-  background: repeating-linear-gradient(
-  0deg, rgba(0,0,0,.2), rgba(0,0,0,.2) 1px, transparent 1px, transparent 2px);
-  }
+#screen-header {
+  width: 100%;
+  display: flex;
+  height: 7%;
+  align-items: flex-end;
 }
 
-@media screen and (min-width: 320px) and (max-width: 648px){
-  .wrapper ul {
-    margin-top: -100.2vh;
-  }
-  .lines-left div {
-    bottom: 78.2vh;
-    height: 0.3vh;
+@media screen and (max-width: 640px) {
+  .wrapper ul li a {
+    font-size: 7vw;
   }
 
-  .line-2 {
-    background-color: #120950;
-    top: -77.4vh;
-  }
-
-  .lines-right div {
-    bottom: 78.2vh;
-    height: 0.3vh;
-  }
-
-  .line-4 {
-    top: -77.4vh;
+  #dotmatrix {
+    font-size: 2vw;
   }
 }
-
-/*--------MEDIA QUERIES END--------*/
