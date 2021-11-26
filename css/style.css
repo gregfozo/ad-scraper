@@ -27,7 +27,7 @@ body{
   position: absolute;
   top: 5%;
   -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
-  font-size: 20px;
+  font-size: 29px;
   left: 0%;
   right: 0%;
   text-align: center;
@@ -177,12 +177,13 @@ table td {
 #screen {
   aspect-ratio: 10 / 7.5;
   width: 100%;
-  max-width: 620px;  
-  min-width: 200px;  
+  max-width: 620px;
+  min-width: 200px;
   position: absolute;
   transition: translate(-50%, -50%);
   text-align: center;
   background: #8a858b;
+  border-radius: 5% 5% 18%;
 }
 
 .menu {
@@ -193,6 +194,9 @@ table td {
   margin: auto;
   position: relative;
   aspect-ratio: 10 / 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .menu:after {
@@ -232,9 +236,9 @@ table td {
 }
 /*Design of BORDER*/
 #red-dot {
-  position: relative;
-  top: 17.5vh;
-  left: -9.5vh;
+  position: absolute;
+  top: 19.5vh;
+  left: 2.5vh;
   width: 15px;
   height: 15px;
   border-radius: 100%;
@@ -255,11 +259,13 @@ table td {
  }
 
 .lines-left {
-  flex: 5
+  flex: 5;
+  padding: 0 5px 0 20px;
 }
 
 .lines-right {
-  flex: 2
+  flex: 2;
+  padding: 0 10px 0 5px;
 }
 
 .line {
@@ -305,5 +311,9 @@ table td {
 
   #dotmatrix {
     font-size: 2vw;
+  }
+
+  .line {
+    height: 2px;
   }
 }
